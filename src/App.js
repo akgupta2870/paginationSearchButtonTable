@@ -196,13 +196,19 @@ function App() {
     setLayer(true);
     setLayerdata(row);
   }
-  // const searchData = (event) => {
-  //   console.log("hit", event.target.value);
-  //   setSearch(event.target.value);
-  //   // const abc = data.filter((e) => e.id == event.target.value);
-  //   // setData(abc);
-  //    //console.log("abc", abc);
-  // };
+  const searchData = (event) => {
+    console.log("hit", event.target.value);
+    setSearch(event.target.value);
+    const abc = data.filter(
+      (e) =>
+        e.id == event.target.value ||
+        e.status === event.target.value ||
+        e.firstName === event.target.value ||
+        e.lastName === event.target.value
+    );
+    //setData(abc);
+    console.log("abc", abc, search);
+  };
 
   const data = React.useMemo(
     () => makeData(100000).map((item) => ({ ...item, action: item })),
@@ -222,8 +228,8 @@ function App() {
         <h1>Table Data</h1>
         <TextInput
           placeholder="search........"
-          //  onChange={searchData}
-          //  value={search}
+          onChange={searchData}
+          value={search}
         />
         <Styles>
           <Table columns={columns} data={data} />
