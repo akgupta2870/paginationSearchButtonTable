@@ -227,7 +227,7 @@ function App() {
       <div style={{ backgroundColor: "pink" }}>
         <h1>Table Data</h1>
         <TextInput
-          placeholder="search........"
+          placeholder="search and check in console ......"
           onChange={searchData}
           value={search}
         />
